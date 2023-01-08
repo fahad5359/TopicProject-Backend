@@ -2,6 +2,7 @@ package com.example.Topic.Manor.Services;
 
 import com.example.Topic.Manor.Entitys.Userr;
 import com.example.Topic.Manor.Repos.Repo_One;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,5 +22,13 @@ public class ServiceV1 {
     public  Userr addTopic(Userr usr) {
 
         return rpo.save(usr);
+    }
+
+    public void deleteTopic(Long id) {
+         rpo.deleteById(id);
+    }
+
+    public Userr getTopicById(Long id) {
+        return rpo.findById(id).orElseThrow();
     }
 }

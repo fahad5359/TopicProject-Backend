@@ -4,6 +4,7 @@ package com.example.Topic.Manor.Controllers;
 import com.example.Topic.Manor.Entitys.Userr;
 import com.example.Topic.Manor.Services.ServiceV1;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,7 +28,10 @@ public class ContrllrV1 {
         return srevce.gettAllTopics();
     }
 
-    // Get one topic by topic or id reffer to targting by single value the 3 things 
+    @GetMapping(path = "Viow_Topic/{id}")
+    public Userr getTopicById(@PathVariable("id") Long id){
+       return srevce.getTopicById(id);
+    }
 
     // ------------------------------------- Post
     @PostMapping(path = "Post_Topic")
@@ -37,8 +41,15 @@ public class ContrllrV1 {
     }
 
     // ------------------------------------- Delete
-// dummy
+    @DeleteMapping(path = "Delet_Topic/{id}")
+    void deletTopic(@PathVariable("id") Long id){
+        srevce.deleteTopic(id);
+        System.out.println("user deleted"+id);
+    }
 
     // ------------------------------------- Put
-// dummy
+    @PutMapping(path = "Update_User")
+    void updateTopic(@RequestBody Userr usr){
+        System.out.println("user updated");
+    }
 }
