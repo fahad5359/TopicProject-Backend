@@ -2,6 +2,9 @@ package com.example.Topic.Manor.Entitys;
 
 import jakarta.persistence.*;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 @Entity
 @Table(name = "User_Data")
 public class Userr {
@@ -9,8 +12,16 @@ public class Userr {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String user_name;
+
+    @NotBlank(message = "Please Add A Topic")
+//    @Size(min = 2, message = "Too Short")
+//    @Size(max = 200, message = "Too long")
     private String topicc;
+
+    @NotBlank(message = "Please Add A Message")
     private String messsage;
+
+
     private String immge;
 
     // ------------------------------------- Constructor

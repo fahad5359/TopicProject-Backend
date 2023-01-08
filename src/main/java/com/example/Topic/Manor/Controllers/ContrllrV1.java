@@ -3,6 +3,7 @@ package com.example.Topic.Manor.Controllers;
 
 import com.example.Topic.Manor.Entitys.Userr;
 import com.example.Topic.Manor.Services.ServiceV1;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +36,7 @@ public class ContrllrV1 {
 
     // ------------------------------------- Post
     @PostMapping(path = "Post_Topic")
-    void addTopic(@RequestBody Userr usr){
+    void addTopic(@Valid @RequestBody Userr usr){
         System.out.println("Topic Sent !"+usr);
         srevce.addTopic(usr);
     }
