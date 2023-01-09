@@ -14,11 +14,12 @@ public class Userr {
     private String user_name;
 
     @NotBlank(message = "Please Add A Topic")
-//    @Size(min = 2, message = "Too Short")
-//    @Size(max = 200, message = "Too long")
+
     private String topicc;
 
     @NotBlank(message = "Please Add A Message")
+    @Size(min = 2, message = "Too Short")
+    @Size(max = 200, message = "Too long")
     private String messsage;
 
 
