@@ -21,9 +21,9 @@ public class ContrllrV1 {
         this.srevce=srevce;
     }
 
-    // ---------------------------------------- Rest Methods
+    // ######################################## Rest Methods ########################################
 
-    // ------------------------------------- Get
+    // ######################################## Get ########################################
     @GetMapping(path="/Viow_All_Topics")
     public List<Userr> gettAll(){
         return srevce.gettAllTopics();
@@ -34,21 +34,21 @@ public class ContrllrV1 {
        return srevce.getTopicById(id);
     }
 
-    // ------------------------------------- Post
+    // ######################################## Post ########################################
     @PostMapping(path = "Post_Topic")
     void addTopic(@Valid @RequestBody Userr usr){
         System.out.println("Topic Sent !"+usr);
         srevce.addTopic(usr);
     }
 
-    // ------------------------------------- Delete
+    //######################################## Delete ########################################
     @DeleteMapping(path = "Delet_Topic/{id}")
     void deletTopic(@PathVariable("id") Long id){
         srevce.deleteTopic(id);
         System.out.println("user deleted"+id);
     }
 
-    // ------------------------------------- Put
+    // ######################################## Put ########################################
     @PutMapping(path = "Update_User")
     void updateTopic(@RequestBody Userr usr){
         System.out.println("user updated");
